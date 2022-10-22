@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 
 public class Nyawa : MonoBehaviour
@@ -9,6 +10,12 @@ public class Nyawa : MonoBehaviour
     public GameObject winTextObject;
     public TextMeshProUGUI countText;
     public int count;
+
+    public void PlayGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -21,16 +28,19 @@ public class Nyawa : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SetCountText();
+        StartCoroutine(SetCountText());
+        
 
     }
 
-    void SetCountText()
+    IEnumerator SetCountText()
     {
         countText.text = "Nyawa: " + count.ToString();
         if (count <= 0)
         {
             winTextObject.SetActive(true);
+            yield return new WaitForSeconds(5);
+            PlayGame();
 
         }
 
