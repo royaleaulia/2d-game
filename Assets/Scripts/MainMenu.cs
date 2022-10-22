@@ -12,6 +12,16 @@ public class MainMenu : MonoBehaviour
         
     }
 
+    public void InformasiSampah()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+    }
+
+    public void KeMenu()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
+    }
+
     public void QuitGame()
     {
         Application.Quit();
