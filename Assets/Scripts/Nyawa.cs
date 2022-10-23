@@ -39,7 +39,7 @@ public class Nyawa : MonoBehaviour
         if (count <= 0)
         {
             winTextObject.SetActive(true);
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(7);
             PlayGame();
 
         }
